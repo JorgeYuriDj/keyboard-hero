@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+/* KeyBoard Hero — Custom theme */
+:root {
+  --kh-primary: #7c3aed;
+  --kh-primary-light: #a78bfa;
+  --kh-accent: #06b6d4;
+  --kh-success: #22c55e;
+  --kh-warning: #eab308;
+  --kh-danger: #ef4444;
+  --kh-bg: #0f0d1a;
+  --kh-surface: #1a1730;
+  --kh-surface2: #252240;
+  --kh-text: #e2e0ea;
+  --kh-text-dim: #9490a8;
+}
+
+body {
+  margin: 0;
+  background: var(--kh-bg);
+  color: var(--kh-text);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden;
+}
+
+#root {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
