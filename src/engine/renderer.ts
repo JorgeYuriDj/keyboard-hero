@@ -496,17 +496,17 @@ export class FallingNotesRenderer {
   // ── Internal: HUD ──────────────────────────────────────────────────────
 
   private drawHud(ctx: CanvasRenderingContext2D, w: number, gameState: GameState): void {
-    // Score — top right
+    // Score — top right (offset down to avoid overlap with pause button)
     ctx.save();
     ctx.fillStyle = 'rgba(255,255,255,0.9)';
     ctx.font = 'bold 22px system-ui, sans-serif';
     ctx.textAlign = 'right';
     ctx.textBaseline = 'top';
-    ctx.fillText(`${gameState.score.toLocaleString()}`, w - 20, 16);
+    ctx.fillText(`${gameState.score.toLocaleString()}`, w - 60, 16);
 
     ctx.font = '12px system-ui, sans-serif';
     ctx.fillStyle = 'rgba(255,255,255,0.5)';
-    ctx.fillText('PONTOS', w - 20, 42);
+    ctx.fillText('PONTOS', w - 60, 42);
 
     // Combo — shown prominently when > 5
     if (gameState.combo > 5) {
@@ -529,13 +529,13 @@ export class FallingNotesRenderer {
       ctx.fillText('COMBO', w / 2, 20 + fontSize);
     }
 
-    // Mode indicator — top left
+    // Mode indicator — top left (offset right to avoid overlap with back button)
     ctx.textAlign = 'left';
     ctx.textBaseline = 'top';
     ctx.font = '11px system-ui, sans-serif';
     ctx.fillStyle = 'rgba(255,255,255,0.35)';
     const modeLabel = gameState.mode === 'practice' ? 'PRATICAR' : 'DESAFIO';
-    ctx.fillText(modeLabel, 16, 16);
+    ctx.fillText(modeLabel, 56, 16);
 
     // Pause overlay
     if (gameState.isPaused) {

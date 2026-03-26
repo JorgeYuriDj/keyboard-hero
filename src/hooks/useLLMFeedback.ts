@@ -11,17 +11,23 @@ const SYSTEM_PROMPT =
   'Seja positivo, identifique o ponto forte, sugira uma melhoria especifica, e de uma missao para a proxima sessao. ' +
   'Use linguagem jovem e motivadora.';
 
-function getFallbackMessage(stars: number): string {
-  switch (stars) {
-    case 3:
-      return 'Incrivel! Voce mandou muito bem!';
-    case 2:
-      return 'Bom trabalho! Continue praticando.';
-    case 1:
-      return 'Esta no caminho certo, nao desista!';
-    default:
-      return 'Cada erro e um aprendizado. Tente de novo!';
+function getFallbackMessage(result: SessionResult): string {
+  const { stars, perfect, miss, totalNotes, maxCombo } = result;
+
+  if (stars === 3) {
+    return `Incrivel! ${perfect} notas perfeitas de ${totalNotes}! Voce arrasou! Tente a proxima licao pra continuar evoluindo.`;
   }
+  if (stars === 2) {
+    return `Bom trabalho! Voce acertou a maioria. Tente de novo pra pegar as 3 estrelas — foco nas notas que voce errou!`;
+  }
+  if (stars === 1) {
+    return `Esta no caminho certo! Voce conseguiu ${totalNotes - miss} de ${totalNotes} notas. Use o modo Praticar pra ir no seu ritmo.`;
+  }
+  // 0 stars
+  if (miss === totalNotes) {
+    return `Nao desanima! Use o modo Praticar — ele pausa e espera voce acertar cada nota. Comece devagar e vai aumentando o ritmo!`;
+  }
+  return `Errar faz parte do aprendizado! Voce acertou ${totalNotes - miss} nota${totalNotes - miss !== 1 ? 's' : ''}. Tente o modo Praticar — ele te ajuda a acertar uma nota de cada vez.`;
 }
 
 export function useLLMFeedback(): {
@@ -48,7 +54,7 @@ export function useLLMFeedback(): {
       const apiKey = import.meta.env.VITE_GROQ_API_KEY as string | undefined;
 
       if (!apiKey) {
-        setFeedback(getFallbackMessage(result.stars));
+        setFeedback(getFallbackMessage(result));
         setIsLoading(false);
         return;
       }
@@ -96,12 +102,12 @@ export function useLLMFeedback(): {
         if (typeof content === 'string' && content.trim().length > 0) {
           setFeedback(content.trim());
         } else {
-          setFeedback(getFallbackMessage(result.stars));
+          setFeedback(getFallbackMessage(result));
         }
       } catch (err: unknown) {
         // Don't update state if this request was aborted (a newer request replaced it)
         if (err instanceof DOMException && err.name === 'AbortError') return;
-        setFeedback(getFallbackMessage(result.stars));
+        setFeedback(getFallbackMessage(result));
       } finally {
         // Only clear loading if this is still the active request
         if (abortRef.current === controller) {
