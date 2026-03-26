@@ -110,6 +110,16 @@ function SettingsScreen({
               Usar teclado do computador
             </span>
           </label>
+
+          {/* Connection help */}
+          <div className="bg-gray-900 border border-gray-800 rounded-xl p-4 space-y-3 text-sm">
+            <p className="text-gray-300 font-semibold">Como conectar?</p>
+            <div className="space-y-2 text-gray-400">
+              <p>🔌 <strong className="text-white">USB (recomendado):</strong> Conecte o cabo USB na porta "USB TO HOST" do Yamaha e no computador/celular (com adaptador OTG).</p>
+              <p>📱 <strong className="text-white">Celular Android:</strong> Use um adaptador USB-C OTG + cabo USB do teclado. Abra o app no Chrome.</p>
+              <p className="text-gray-500 text-xs pt-1">⚠️ O PSR-SX600 não tem Bluetooth MIDI nativo. Para Bluetooth, é necessário um adaptador como Yamaha MD-BT01 ou CME WIDI (vendidos separadamente).</p>
+            </div>
+          </div>
         </div>
 
         {/* Volume */}
