@@ -79,7 +79,7 @@ function SettingsScreen({
   return (
     <div className="min-h-screen bg-gray-950 text-white flex flex-col items-center justify-center p-6">
       <div className="w-full max-w-md space-y-8">
-        <h1 className="text-3xl font-bold text-center">Configuracoes</h1>
+        <h1 className="text-3xl font-bold text-center">Configurações</h1>
 
         {/* MIDI Device */}
         <div className="space-y-3">
@@ -184,6 +184,7 @@ function App() {
   const [lastResult, setLastResult] = useState<SessionResult | null>(null);
   const [midiDeviceId, setMidiDeviceId] = useState<string | null>(null);
   const [newBadges, setNewBadges] = useState<string[]>([]);
+  const [lastXpGained, setLastXpGained] = useState<number>(0);
 
   const { feedback, isLoading: isLoadingFeedback, requestFeedback } = useLLMFeedback();
 
@@ -244,6 +245,7 @@ function App() {
 
       setProgress(updated);
       setLastResult(result);
+      setLastXpGained(xpGained);
       setScreen('result');
 
       // Request AI feedback async
@@ -354,6 +356,7 @@ function App() {
           aiFeedback={feedback}
           isLoadingFeedback={isLoadingFeedback}
           newBadges={newBadges}
+          xpEarned={lastXpGained}
           onRetry={handleRetry}
           onNext={handleNext}
           onHome={handleHome}

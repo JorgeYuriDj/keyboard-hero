@@ -67,7 +67,7 @@ export default function LessonMap({
           ← Voltar
         </button>
         <h2 className="flex-1 text-center text-2xl font-bold text-white">
-          Mapa de Licoes
+          Mapa de Lições
         </h2>
         <div className="w-20" /> {/* Spacer for centering */}
       </div>
@@ -132,7 +132,7 @@ export default function LessonMap({
                     <DifficultyDots level={lesson.difficulty} />
                     {best && (
                       <span className="text-sm text-gray-400">
-                        {Math.round(best.score)}%
+                        {Math.round(best.score)} pts
                       </span>
                     )}
                   </div>
@@ -189,7 +189,7 @@ export default function LessonMap({
                 <div className="flex items-center justify-between">
                   <StarDisplay earned={progress.stars[selectedLesson.id] ?? 0} />
                   <span className="text-lg font-bold text-white">
-                    {Math.round(bestScore.score)}%
+                    {Math.round(bestScore.score)} pts
                   </span>
                 </div>
                 <div className="flex gap-3 mt-2 text-xs text-gray-500">
