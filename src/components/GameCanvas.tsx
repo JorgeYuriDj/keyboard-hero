@@ -484,6 +484,16 @@ const GameCanvas: FC<GameCanvasProps> = ({
       {phase === 'idle' && (
         <div className="absolute inset-0 z-30 flex flex-col items-center justify-center
                         bg-black/60 backdrop-blur-sm">
+          {/* Voltar button — top-left, inside overlay so it's always clickable */}
+          <button
+            onClick={quitGame}
+            className="absolute top-4 left-4 flex items-center gap-2
+                       bg-white/10 hover:bg-white/20 border border-white/20
+                       text-white rounded-xl px-4 py-2 font-semibold
+                       transition-all duration-300"
+          >
+            ← Voltar
+          </button>
           <h2 className="text-white text-2xl font-bold mb-2">{lesson.title}</h2>
           <p className="text-white/60 text-sm mb-1">
             {lesson.notes.length} notas &middot; {mode === 'practice' ? 'Praticar' : 'Desafio'}
