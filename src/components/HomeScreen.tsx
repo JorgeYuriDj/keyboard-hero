@@ -9,11 +9,11 @@ interface HomeScreenProps {
 }
 
 const LEVEL_TITLES: Record<number, string> = {
-  1: 'Iniciante',
-  2: 'Aprendiz',
-  3: 'Musico',
-  4: 'Mestre',
-  5: 'Virtuoso',
+  1: 'Novato 🐣',
+  2: 'Aprendiz 🎵',
+  3: 'Fera do Teclado 🔥',
+  4: 'Mestre das Teclas 🎹',
+  5: 'Lenda Musical 👑',
 };
 
 /** XP necessario para alcancar cada nivel */
@@ -132,7 +132,7 @@ export default function HomeScreen({
       <div className="bg-[#1a1730] border border-purple-800/30 rounded-2xl px-6 py-4 mb-6 w-full max-w-md">
         <div className="flex items-center justify-between mb-3">
           <span className="text-lg font-semibold text-white">
-            Nivel {progress.level} — {levelTitle}
+            Nível {progress.level} — {levelTitle}
           </span>
           <span className="text-sm text-gray-400">
             {progress.xp} XP
@@ -172,7 +172,7 @@ export default function HomeScreen({
           onClick={onSettings}
           className="flex-1 bg-[#1a1730] hover:bg-[#252040] border border-purple-800/30 text-white rounded-xl px-6 py-4 font-semibold text-lg transition-all duration-300 hover:scale-[1.02] active:scale-95"
         >
-          ⚙️ Configuracoes
+          ⚙️ Configurações
         </button>
       </div>
 
@@ -184,7 +184,7 @@ export default function HomeScreen({
         </div>
         <div className="bg-[#1a1730] border border-purple-800/30 rounded-xl p-4 text-center">
           <p className="text-2xl font-bold text-cyan-400">{lessonsCompleted}</p>
-          <p className="text-xs text-gray-400 mt-1">Licoes</p>
+          <p className="text-xs text-gray-400 mt-1">Lições</p>
         </div>
         <div className="bg-[#1a1730] border border-purple-800/30 rounded-xl p-4 text-center">
           <p className="text-2xl font-bold text-purple-400">{totalPracticeDays}</p>

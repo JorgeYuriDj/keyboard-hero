@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useRef } from 'react';
 import type { SessionResult, Lesson } from '../types';
 
 const GROQ_API_URL = 'https://api.groq.com/openai/v1/chat/completions';
@@ -31,9 +31,17 @@ export function useLLMFeedback(): {
 } {
   const [feedback, setFeedback] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
+  const abortRef = useRef<AbortController | null>(null);
 
   const requestFeedback = useCallback(
     async (result: SessionResult, lesson: Lesson) => {
+      // Abort any in-flight request before starting a new one
+      if (abortRef.current) {
+        abortRef.current.abort();
+      }
+      const controller = new AbortController();
+      abortRef.current = controller;
+
       setFeedback(null);
       setIsLoading(true);
 
@@ -75,6 +83,7 @@ export function useLLMFeedback(): {
             temperature: 0.7,
             max_tokens: 256,
           }),
+          signal: controller.signal,
         });
 
         if (!response.ok) {
@@ -89,10 +98,15 @@ export function useLLMFeedback(): {
         } else {
           setFeedback(getFallbackMessage(result.stars));
         }
-      } catch {
+      } catch (err: unknown) {
+        // Don't update state if this request was aborted (a newer request replaced it)
+        if (err instanceof DOMException && err.name === 'AbortError') return;
         setFeedback(getFallbackMessage(result.stars));
       } finally {
-        setIsLoading(false);
+        // Only clear loading if this is still the active request
+        if (abortRef.current === controller) {
+          setIsLoading(false);
+        }
       }
     },
     []

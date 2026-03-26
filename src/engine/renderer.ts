@@ -210,6 +210,8 @@ export class FallingNotesRenderer {
     if (!parent) return;
     const dpr = window.devicePixelRatio || 1;
     const rect = parent.getBoundingClientRect();
+    // Guard against zero-size container (element not yet visible / collapsed)
+    if (rect.width === 0 || rect.height === 0) return;
     this.canvas.width = rect.width * dpr;
     this.canvas.height = rect.height * dpr;
     this.canvas.style.width = `${rect.width}px`;

@@ -40,7 +40,18 @@ export function loadProgress(): UserProgress {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (!raw) return getDefaultProgress();
-    return JSON.parse(raw) as UserProgress;
+    const parsed = JSON.parse(raw);
+    // Validate and merge with defaults to handle corrupted/incomplete data
+    const defaults = getDefaultProgress();
+    return {
+      name: typeof parsed.name === 'string' ? parsed.name : defaults.name,
+      level: typeof parsed.level === 'number' ? parsed.level : defaults.level,
+      xp: typeof parsed.xp === 'number' ? parsed.xp : defaults.xp,
+      bestScores: parsed.bestScores && typeof parsed.bestScores === 'object' ? parsed.bestScores : defaults.bestScores,
+      stars: parsed.stars && typeof parsed.stars === 'object' ? parsed.stars : defaults.stars,
+      practiceDays: Array.isArray(parsed.practiceDays) ? parsed.practiceDays : defaults.practiceDays,
+      badges: Array.isArray(parsed.badges) ? parsed.badges : defaults.badges,
+    };
   } catch {
     return getDefaultProgress();
   }
