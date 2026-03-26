@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KeyBoard Hero — Guia da Isabella</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: #0f0d1a;
+      color: #e2e0ea;
+      line-height: 1.7;
+      padding: 20px;
+    }
+    .container { max-width: 600px; margin: 0 auto; }
+    h1 {
+      text-align: center;
+      font-size: 2.2em;
+      margin-bottom: 8px;
+      color: white;
+    }
+    .subtitle {
+      text-align: center;
+      color: #9490a8;
+      margin-bottom: 32px;
+      font-size: 1.1em;
+    }
+    h2 {
+      color: #a78bfa;
+      font-size: 1.4em;
+      margin-top: 32px;
+      margin-bottom: 12px;
+      padding-bottom: 6px;
+      border-bottom: 2px solid #252240;
+    }
+    h3 {
+      color: #06b6d4;
+      font-size: 1.1em;
+      margin-top: 20px;
+      margin-bottom: 8px;
+    }
+    p { margin-bottom: 12px; }
+    .emoji { font-size: 1.3em; }
+    .highlight {
+      background: #252240;
+      border-left: 4px solid #7c3aed;
+      padding: 16px;
+      border-radius: 0 12px 12px 0;
+      margin: 16px 0;
+    }
+    .highlight-green {
+      background: #0a2a1a;
+      border-left: 4px solid #22c55e;
+      padding: 16px;
+      border-radius: 0 12px 12px 0;
+      margin: 16px 0;
+    }
+    .highlight-amber {
+      background: #2a2010;
+      border-left: 4px solid #eab308;
+      padding: 16px;
+      border-radius: 0 12px 12px 0;
+      margin: 16px 0;
+    }
+    .step {
+      background: #1a1730;
+      border: 1px solid #252240;
+      border-radius: 16px;
+      padding: 16px 20px;
+      margin: 12px 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+    .step-number {
+      background: #7c3aed;
+      color: white;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      flex-shrink: 0;
+      font-size: 0.9em;
+    }
+    .lesson-list {
+      list-style: none;
+      padding: 0;
+    }
+    .lesson-list li {
+      background: #1a1730;
+      border: 1px solid #252240;
+      border-radius: 12px;
+      padding: 12px 16px;
+      margin: 8px 0;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .lesson-num {
+      background: #252240;
+      color: #a78bfa;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 0.8em;
+      flex-shrink: 0;
+    }
+    .badge-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin: 12px 0;
+    }
+    .badge {
+      background: #1a1730;
+      border: 1px solid #252240;
+      border-radius: 12px;
+      padding: 12px;
+      text-align: center;
+      font-size: 0.9em;
+    }
+    .keys {
+      display: inline;
+      background: #252240;
+      border: 1px solid #3a3660;
+      border-radius: 6px;
+      padding: 2px 8px;
+      font-family: 'Consolas', 'Courier New', monospace;
+      font-size: 0.9em;
+      color: #a78bfa;
+    }
+    .cta-button {
+      display: block;
+      background: linear-gradient(135deg, #7c3aed, #06b6d4);
+      color: white;
+      text-decoration: none;
+      text-align: center;
+      font-size: 1.3em;
+      font-weight: bold;
+      padding: 18px 32px;
+      border-radius: 16px;
+      margin: 32px 0;
+      transition: transform 0.2s;
+    }
+    .cta-button:hover { transform: scale(1.03); }
+    .cta-button:active { transform: scale(0.97); }
+    .divider {
+      height: 1px;
+      background: #252240;
+      margin: 32px 0;
+    }
+    .footer {
+      text-align: center;
+      color: #9490a8;
+      font-size: 0.85em;
+      margin-top: 40px;
+      padding-bottom: 20px;
+    }
+    @media (max-width: 480px) {
+      h1 { font-size: 1.7em; }
+      body { padding: 16px; }
+      .badge-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <p style="text-align:center; font-size: 3em; margin-bottom: 8px;">🎹</p>
+    <h1>KeyBoard Hero</h1>
+    <p class="subtitle">Aprenda teclado no seu ritmo — estilo Guitar Hero!</p>
+
+    <div class="highlight">
+      <p><strong>O que e?</strong> Um app que mostra notas coloridas caindo na tela. Quando a nota chegar na linha do teclado, voce toca a tecla certa no Yamaha. Acertou? Brilha verde! Errou? Vermelha. Simples assim. <span class="emoji">✨</span></p>
+    </div>
+
+    <!-- ====== COMO COMECAR ====== -->
+    <h2><span class="emoji">🚀</span> Como comecar</h2>
+
+    <div class="step">
+      <div class="step-number">1</div>
+      <div>
+        <strong>Abra o app no navegador</strong><br>
+        Use o <strong>Chrome</strong> ou <strong>Edge</strong> no celular ou notebook. Clique no botao verde abaixo!
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-number">2</div>
+      <div>
+        <strong>Digite seu nome</strong><br>
+        Na tela inicial, coloque seu nome e aperte OK.
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-number">3</div>
+      <div>
+        <strong>Aperte "Praticar"</strong><br>
+        Vai abrir o mapa de licoes. Comece pela primeira: <strong>Do Re Mi</strong>.
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-number">4</div>
+      <div>
+        <strong>Escolha o modo</strong><br>
+        <strong>Praticar</strong> = o jogo pausa e espera voce acertar (sem pressa!)<br>
+        <strong>Tocar</strong> = as notas continuam caindo, modo desafio!
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-number">5</div>
+      <div>
+        <strong>Aperte "Iniciar" e toque!</strong><br>
+        Quando a nota chegar na linha branca, toque a tecla correspondente no teclado.
+      </div>
+    </div>
+
+    <!-- ====== CONECTAR O YAMAHA ====== -->
+    <h2><span class="emoji">🔌</span> Conectar o teclado Yamaha</h2>
+
+    <div class="highlight-green">
+      <p><strong>No notebook:</strong></p>
+      <p>1. Liga o Yamaha PSR-SX600<br>
+         2. Conecta o cabo USB (porta USB TO HOST do teclado) no notebook<br>
+         3. Abre o app no Chrome<br>
+         4. Aparece <strong>"MIDI conectado"</strong> em verde = pronto!</p>
+    </div>
+
+    <div class="highlight-green">
+      <p><strong>No celular Android:</strong></p>
+      <p>1. Voce precisa de um adaptador <strong>USB-C OTG</strong><br>
+         2. Conecta: Yamaha → cabo USB → adaptador OTG → celular<br>
+         3. Abre o app no Chrome<br>
+         4. Aceita a permissao MIDI quando aparecer</p>
+    </div>
+
+    <div class="highlight-amber">
+      <p><strong>Sem teclado MIDI?</strong> Sem problema! Use o teclado do computador:<br><br>
+         Notas altas: <span class="keys">Q W E R T Y U I</span><br>
+         Notas baixas: <span class="keys">Z X C V B N M</span><br>
+         Teclas pretas: <span class="keys">2 3 5 6 7</span> e <span class="keys">S D G H J</span>
+      </p>
+    </div>
+
+    <!-- ====== AS LICOES ====== -->
+    <h2><span class="emoji">📚</span> As 10 Licoes</h2>
+    <p>Cada licao desbloqueia depois que voce ganha pelo menos <strong>1 estrela</strong> na anterior:</p>
+
+    <ol class="lesson-list">
+      <li><span class="lesson-num">1</span> <strong>Do Re Mi</strong> — so 3 notas, bem devagar</li>
+      <li><span class="lesson-num">2</span> <strong>Escala de Do Maior</strong> — sobe e desce</li>
+      <li><span class="lesson-num">3</span> <strong>Ritmo Basico</strong> — notas longas e curtas</li>
+      <li><span class="lesson-num">4</span> <strong>Mao Esquerda</strong> — agora a esquerda joga!</li>
+      <li><span class="lesson-num">5</span> <strong>Parabens pra Voce</strong> — a classica!</li>
+      <li><span class="lesson-num">6</span> <strong>Brilha Brilha Estrelinha</strong> — melodia fofa</li>
+      <li><span class="lesson-num">7</span> <strong>Duas Maos</strong> — as duas juntas</li>
+      <li><span class="lesson-num">8</span> <strong>Ode a Alegria</strong> — Beethoven!</li>
+      <li><span class="lesson-num">9</span> <strong>Acordes Basicos</strong> — Do, Fa, Sol</li>
+      <li><span class="lesson-num">10</span> <strong>Melodia com Acordes</strong> — junta tudo!</li>
+    </ol>
+
+    <!-- ====== PONTUACAO ====== -->
+    <h2><span class="emoji">⭐</span> Como funciona a pontuacao</h2>
+
+    <p>Cada nota que voce toca recebe uma avaliacao:</p>
+
+    <div class="step">
+      <div style="font-size: 1.5em;">💚</div>
+      <div><strong>Perfeito</strong> — acertou no tempo exato (100 pontos)</div>
+    </div>
+    <div class="step">
+      <div style="font-size: 1.5em;">💛</div>
+      <div><strong>Bom</strong> — quase no tempo (75 pontos)</div>
+    </div>
+    <div class="step">
+      <div style="font-size: 1.5em;">🟠</div>
+      <div><strong>Ok</strong> — um pouquinho atrasado (50 pontos)</div>
+    </div>
+    <div class="step">
+      <div style="font-size: 1.5em;">❌</div>
+      <div><strong>Erro</strong> — nota errada ou muito atrasado (0 pontos)</div>
+    </div>
+
+    <p>Acertou varias seguidas? Seu <strong>COMBO</strong> cresce e voce ganha pontos extras! <span class="emoji">🔥</span></p>
+
+    <p>No final, voce ganha de <strong>0 a 3 estrelas</strong> baseado na sua precisao. E um <strong>Coach IA</strong> te da dicas personalizadas do que melhorar!</p>
+
+    <!-- ====== CONQUISTAS ====== -->
+    <h2><span class="emoji">🏆</span> Conquistas</h2>
+    <p>Desbloqueie medalhas conforme voce joga:</p>
+
+    <div class="badge-grid">
+      <div class="badge">🎵 Primeira Licao!</div>
+      <div class="badge">⭐ Score Perfeito!</div>
+      <div class="badge">🔥 Combo de 50!</div>
+      <div class="badge">📅 3 Dias Seguidos!</div>
+      <div class="badge">🏆 7 Dias Seguidos!</div>
+      <div class="badge">👑 Todas as Estrelas!</div>
+    </div>
+
+    <!-- ====== NIVEIS ====== -->
+    <h2><span class="emoji">📈</span> Niveis</h2>
+    <p>Quanto mais voce pratica, mais XP ganha e mais sobe de nivel:</p>
+
+    <div class="step"><div style="font-size:1.3em">🐣</div><div><strong>Nivel 1 — Novato</strong></div></div>
+    <div class="step"><div style="font-size:1.3em">🎵</div><div><strong>Nivel 2 — Aprendiz</strong></div></div>
+    <div class="step"><div style="font-size:1.3em">🔥</div><div><strong>Nivel 3 — Fera do Teclado</strong></div></div>
+    <div class="step"><div style="font-size:1.3em">🎹</div><div><strong>Nivel 4 — Mestre das Teclas</strong></div></div>
+    <div class="step"><div style="font-size:1.3em">👑</div><div><strong>Nivel 5 — Lenda Musical</strong></div></div>
+
+    <div class="divider"></div>
+
+    <h2><span class="emoji">💡</span> Dicas</h2>
+    <ul style="padding-left: 20px; margin-bottom: 16px;">
+      <li>Comece no <strong>modo Praticar</strong> — ele pausa e espera voce acertar</li>
+      <li>Quando se sentir confiante, mude pro <strong>modo Tocar</strong> (desafio!)</li>
+      <li>Tente praticar <strong>todo dia</strong> pra manter seu streak 🔥</li>
+      <li>Nao precisa acertar tudo! 1 estrela ja desbloqueia a proxima licao</li>
+      <li>O Coach IA sempre da dicas do que melhorar — leia o feedback!</li>
+    </ul>
+
+    <div class="divider"></div>
+
+    <p style="text-align: center; font-size: 1.1em; color: white; margin: 24px 0 8px;">
+      Pronta pra comecar? <span class="emoji">🎹✨</span>
+    </p>
+
+    <a href="/" class="cta-button">
+      🎮 Abrir o KeyBoard Hero
+    </a>
+
+    <div class="footer">
+      <p>KeyBoard Hero v1.0 — Feito com 💜</p>
+    </div>
+
+  </div>
+</body>
+</html>
