@@ -85,6 +85,7 @@ const GameCanvas: FC<GameCanvasProps> = ({
     combo: 0,
     maxCombo: 0,
     hits: [],
+    wrongNotes: 0,
   });
 
   /** Set of MIDI note numbers currently pressed by the player. */
@@ -144,7 +145,10 @@ const GameCanvas: FC<GameCanvasProps> = ({
     const unjudged = lesson.notes.length - s.hits.length;
     miss += unjudged;
 
-    const totalNotes = lesson.notes.length;
+    // Add wrong notes (keys pressed that didn't match any expected note)
+    miss += s.wrongNotes;
+
+    const totalNotes = lesson.notes.length + s.wrongNotes;
     const stars = calculateStars({ perfect, good, ok, miss, totalNotes });
     const duration = s.currentTime;
 
@@ -198,8 +202,20 @@ const GameCanvas: FC<GameCanvasProps> = ({
       }
 
       if (bestIdx === -1) {
-        // Wrong note or out of window — no penalty beyond breaking combo
-        // (optional: could add a "wrong note" flash here)
+        // Wrong note — break combo and show red flash
+        // Only penalize if there IS a note expected nearby (avoid penalizing
+        // random key presses when no notes are on screen)
+        const idx = nextExpectedIdxRef.current;
+        if (idx < notes.length) {
+          const nextNote = notes[idx];
+          const distanceToNext = Math.abs(nextNote.time - gs.currentTime);
+          // Only count as wrong note if we're near an expected note (within 1s)
+          if (distanceToNext < 1.0) {
+            gs.wrongNotes = (gs.wrongNotes ?? 0) + 1;
+            gs.combo = 0;
+            rendererRef.current?.showHitEffect(midiNote, 'miss');
+          }
+        }
         return;
       }
 
@@ -334,6 +350,7 @@ const GameCanvas: FC<GameCanvasProps> = ({
     gs.combo = 0;
     gs.maxCombo = 0;
     gs.hits = [];
+    gs.wrongNotes = 0;
     nextExpectedIdxRef.current = 0;
     completedRef.current = false;
 
@@ -388,6 +405,7 @@ const GameCanvas: FC<GameCanvasProps> = ({
       combo: 0,
       maxCombo: 0,
       hits: [],
+      wrongNotes: 0,
     };
     renderer.render(idleState, new Set());
 

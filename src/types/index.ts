@@ -87,6 +87,8 @@ export interface GameState {
   combo: number;
   maxCombo: number;
   hits: NoteHit[];
+  /** Notas erradas tocadas (teclas que nao correspondiam a nenhuma nota esperada) */
+  wrongNotes: number;
 }
 
 /** Dispositivo MIDI detectado */
