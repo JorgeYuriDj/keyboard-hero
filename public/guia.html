@@ -34,12 +34,6 @@
       padding-bottom: 6px;
       border-bottom: 2px solid #252240;
     }
-    h3 {
-      color: #06b6d4;
-      font-size: 1.1em;
-      margin-top: 20px;
-      margin-bottom: 8px;
-    }
     p { margin-bottom: 12px; }
     .emoji { font-size: 1.3em; }
     .highlight {
@@ -59,6 +53,13 @@
     .highlight-amber {
       background: #2a2010;
       border-left: 4px solid #eab308;
+      padding: 16px;
+      border-radius: 0 12px 12px 0;
+      margin: 16px 0;
+    }
+    .highlight-red {
+      background: #2a1010;
+      border-left: 4px solid #ef4444;
       padding: 16px;
       border-radius: 0 12px 12px 0;
       margin: 16px 0;
@@ -164,6 +165,23 @@
       margin-top: 40px;
       padding-bottom: 20px;
     }
+    .screen-preview {
+      background: #1a1730;
+      border: 1px solid #252240;
+      border-radius: 16px;
+      padding: 20px;
+      margin: 16px 0;
+    }
+    .screen-preview h4 {
+      color: #06b6d4;
+      font-size: 1em;
+      margin-bottom: 8px;
+    }
+    .screen-preview p {
+      color: #9490a8;
+      font-size: 0.9em;
+      margin-bottom: 6px;
+    }
     @media (max-width: 480px) {
       h1 { font-size: 1.7em; }
       body { padding: 16px; }
@@ -179,17 +197,21 @@
     <p class="subtitle">Aprenda teclado no seu ritmo — estilo Guitar Hero!</p>
 
     <div class="highlight">
-      <p><strong>O que e?</strong> Um app que mostra notas coloridas caindo na tela. Quando a nota chegar na linha do teclado, voce toca a tecla certa no Yamaha. Acertou? Brilha verde! Errou? Vermelha. Simples assim. <span class="emoji">✨</span></p>
+      <p><strong>O que é?</strong> Um app que mostra notas coloridas caindo na tela. Quando a nota chegar na linha do teclado, você toca a tecla certa. Acertou no tempo? Brilha verde e ganha pontos! Errou? Fica vermelho. Simples assim. <span class="emoji">✨</span></p>
     </div>
 
-    <!-- ====== COMO COMECAR ====== -->
-    <h2><span class="emoji">🚀</span> Como comecar</h2>
+    <a href="/" class="cta-button">
+      🎮 Abrir o KeyBoard Hero
+    </a>
+
+    <!-- ====== COMO COMEÇAR ====== -->
+    <h2><span class="emoji">🚀</span> Como começar</h2>
 
     <div class="step">
       <div class="step-number">1</div>
       <div>
         <strong>Abra o app no navegador</strong><br>
-        Use o <strong>Chrome</strong> ou <strong>Edge</strong> no celular ou notebook. Clique no botao verde abaixo!
+        Use o <strong>Google Chrome</strong> no celular ou notebook. Toque no botão roxo acima!
       </div>
     </div>
 
@@ -197,15 +219,15 @@
       <div class="step-number">2</div>
       <div>
         <strong>Digite seu nome</strong><br>
-        Na tela inicial, coloque seu nome e aperte OK.
+        Na tela inicial, coloque seu nome e aperte OK. Seu progresso fica salvo!
       </div>
     </div>
 
     <div class="step">
       <div class="step-number">3</div>
       <div>
-        <strong>Aperte "Praticar"</strong><br>
-        Vai abrir o mapa de licoes. Comece pela primeira: <strong>Do Re Mi</strong>.
+        <strong>Aperte "🎵 Praticar"</strong><br>
+        Vai abrir o mapa de lições. Comece pela primeira: <strong>Do Re Mi</strong>.
       </div>
     </div>
 
@@ -213,8 +235,9 @@
       <div class="step-number">4</div>
       <div>
         <strong>Escolha o modo</strong><br>
-        <strong>Praticar</strong> = o jogo pausa e espera voce acertar (sem pressa!)<br>
-        <strong>Tocar</strong> = as notas continuam caindo, modo desafio!
+        <strong>🎯 Praticar:</strong> o jogo <em>pausa e espera</em> você acertar cada nota. Sem pressa!<br>
+        <strong>🎹 Tocar:</strong> as notas continuam caindo sem parar. Modo desafio!<br><br>
+        <em>Dica: comece sempre no modo Praticar!</em>
       </div>
     </div>
 
@@ -222,86 +245,140 @@
       <div class="step-number">5</div>
       <div>
         <strong>Aperte "Iniciar" e toque!</strong><br>
-        Quando a nota chegar na linha branca, toque a tecla correspondente no teclado.
+        Quando a nota colorida chegar na linha branca do teclado, toque a tecla correspondente. O app conta se você acertou, errou, ou tocou a tecla errada.
       </div>
+    </div>
+
+    <!-- ====== TELAS DO APP ====== -->
+    <h2><span class="emoji">📱</span> O que tem em cada tela</h2>
+
+    <div class="screen-preview">
+      <h4>🏠 Tela Inicial</h4>
+      <p>Seu nome, nível, barra de XP, streak de dias praticando, e o botão "Praticar" para começar.</p>
+    </div>
+
+    <div class="screen-preview">
+      <h4>🗺️ Mapa de Lições</h4>
+      <p>Lista com as 10 lições. As desbloqueadas aparecem coloridas, as trancadas ficam com 🔒. Toque em uma lição para escolher o modo.</p>
+    </div>
+
+    <div class="screen-preview">
+      <h4>🎮 Tela do Jogo</h4>
+      <p>Notas coloridas caindo! Teclado de piano desenhado embaixo. Pontuação e combo no topo. Botão "← Voltar" no canto superior esquerdo se quiser sair.</p>
+    </div>
+
+    <div class="screen-preview">
+      <h4>⭐ Tela de Resultado</h4>
+      <p>Depois de cada lição: suas estrelas (0-3), pontuação, precisão %, acertos e erros, combo máximo, XP ganho, e o feedback do Coach IA. Botões "Tentar Novamente" e "Próxima Lição" ficam fixos embaixo.</p>
+    </div>
+
+    <div class="screen-preview">
+      <h4>⚙️ Configurações</h4>
+      <p>Escolher dispositivo MIDI, ajustar volume, e instruções de como conectar o teclado Yamaha.</p>
     </div>
 
     <!-- ====== CONECTAR O YAMAHA ====== -->
     <h2><span class="emoji">🔌</span> Conectar o teclado Yamaha</h2>
 
     <div class="highlight-green">
-      <p><strong>No notebook:</strong></p>
+      <p><strong>💻 No notebook (mais fácil):</strong></p>
       <p>1. Liga o Yamaha PSR-SX600<br>
-         2. Conecta o cabo USB (porta USB TO HOST do teclado) no notebook<br>
-         3. Abre o app no Chrome<br>
-         4. Aparece <strong>"MIDI conectado"</strong> em verde = pronto!</p>
+         2. Conecta o cabo USB (porta <strong>USB TO HOST</strong> do teclado) no notebook<br>
+         3. Abre o app no <strong>Google Chrome</strong><br>
+         4. Aparece <strong>"MIDI conectado"</strong> em verde na tela do jogo = pronto!</p>
     </div>
 
     <div class="highlight-green">
-      <p><strong>No celular Android:</strong></p>
-      <p>1. Voce precisa de um adaptador <strong>USB-C OTG</strong><br>
+      <p><strong>📱 No celular Android:</strong></p>
+      <p>1. Você precisa de um adaptador <strong>USB-C OTG</strong> (custa uns R$15-25)<br>
          2. Conecta: Yamaha → cabo USB → adaptador OTG → celular<br>
-         3. Abre o app no Chrome<br>
-         4. Aceita a permissao MIDI quando aparecer</p>
+         3. Abre o app no <strong>Chrome</strong><br>
+         4. Aceita a permissão MIDI quando aparecer</p>
     </div>
 
     <div class="highlight-amber">
-      <p><strong>Sem teclado MIDI?</strong> Sem problema! Use o teclado do computador:<br><br>
+      <p><strong>⌨️ Sem teclado MIDI?</strong> Sem problema! Use o teclado do computador:</p>
+      <p>
          Notas altas: <span class="keys">Q W E R T Y U I</span><br>
          Notas baixas: <span class="keys">Z X C V B N M</span><br>
          Teclas pretas: <span class="keys">2 3 5 6 7</span> e <span class="keys">S D G H J</span>
       </p>
     </div>
 
-    <!-- ====== AS LICOES ====== -->
-    <h2><span class="emoji">📚</span> As 10 Licoes</h2>
-    <p>Cada licao desbloqueia depois que voce ganha pelo menos <strong>1 estrela</strong> na anterior:</p>
+    <div class="highlight-red">
+      <p><strong>📶 E Bluetooth?</strong> O PSR-SX600 <em>não tem</em> Bluetooth MIDI nativo. Para conectar sem fio, você precisaria de um adaptador como <strong>Yamaha MD-BT01</strong> ou <strong>CME WIDI</strong> (vendidos separadamente, ~R$200-400). Por enquanto, <strong>o cabo USB funciona perfeitamente</strong>!</p>
+    </div>
+
+    <!-- ====== AS LIÇÕES ====== -->
+    <h2><span class="emoji">📚</span> As 10 Lições</h2>
+    <p>Cada lição só desbloqueia depois que você ganha pelo menos <strong>1 estrela ⭐</strong> na anterior:</p>
 
     <ol class="lesson-list">
-      <li><span class="lesson-num">1</span> <strong>Do Re Mi</strong> — so 3 notas, bem devagar</li>
-      <li><span class="lesson-num">2</span> <strong>Escala de Do Maior</strong> — sobe e desce</li>
-      <li><span class="lesson-num">3</span> <strong>Ritmo Basico</strong> — notas longas e curtas</li>
-      <li><span class="lesson-num">4</span> <strong>Mao Esquerda</strong> — agora a esquerda joga!</li>
-      <li><span class="lesson-num">5</span> <strong>Parabens pra Voce</strong> — a classica!</li>
-      <li><span class="lesson-num">6</span> <strong>Brilha Brilha Estrelinha</strong> — melodia fofa</li>
-      <li><span class="lesson-num">7</span> <strong>Duas Maos</strong> — as duas juntas</li>
-      <li><span class="lesson-num">8</span> <strong>Ode a Alegria</strong> — Beethoven!</li>
-      <li><span class="lesson-num">9</span> <strong>Acordes Basicos</strong> — Do, Fa, Sol</li>
-      <li><span class="lesson-num">10</span> <strong>Melodia com Acordes</strong> — junta tudo!</li>
+      <li><span class="lesson-num">1</span> <strong>Do Re Mi</strong> — só 3 notas, bem devagar (comece aqui!)</li>
+      <li><span class="lesson-num">2</span> <strong>Escala de Dó Maior</strong> — sobe e desce a escala</li>
+      <li><span class="lesson-num">3</span> <strong>Ritmo Básico</strong> — notas longas e curtas misturadas</li>
+      <li><span class="lesson-num">4</span> <strong>Mão Esquerda</strong> — agora a esquerda entra!</li>
+      <li><span class="lesson-num">5</span> <strong>Parabéns pra Você</strong> — a música que todo mundo conhece!</li>
+      <li><span class="lesson-num">6</span> <strong>Brilha Brilha Estrelinha</strong> — melodia clássica</li>
+      <li><span class="lesson-num">7</span> <strong>Duas Mãos</strong> — as duas mãos tocam juntas</li>
+      <li><span class="lesson-num">8</span> <strong>Ode à Alegria</strong> — Beethoven simplificado!</li>
+      <li><span class="lesson-num">9</span> <strong>Acordes Básicos</strong> — Dó, Fá, Sol (3 notas ao mesmo tempo)</li>
+      <li><span class="lesson-num">10</span> <strong>Melodia com Acordes</strong> — junta tudo que aprendeu!</li>
     </ol>
 
-    <!-- ====== PONTUACAO ====== -->
-    <h2><span class="emoji">⭐</span> Como funciona a pontuacao</h2>
+    <!-- ====== PONTUAÇÃO ====== -->
+    <h2><span class="emoji">⭐</span> Como funciona a pontuação</h2>
 
-    <p>Cada nota que voce toca recebe uma avaliacao:</p>
+    <p>Cada nota que você toca recebe uma avaliação:</p>
 
     <div class="step">
       <div style="font-size: 1.5em;">💚</div>
-      <div><strong>Perfeito</strong> — acertou no tempo exato (100 pontos)</div>
+      <div><strong>Perfeito</strong> — acertou a nota certa no tempo exato (100 pontos)</div>
     </div>
     <div class="step">
       <div style="font-size: 1.5em;">💛</div>
-      <div><strong>Bom</strong> — quase no tempo (75 pontos)</div>
+      <div><strong>Bom</strong> — nota certa, quase no tempo (75 pontos)</div>
     </div>
     <div class="step">
       <div style="font-size: 1.5em;">🟠</div>
-      <div><strong>Ok</strong> — um pouquinho atrasado (50 pontos)</div>
+      <div><strong>Ok</strong> — nota certa, um pouquinho atrasada (50 pontos)</div>
     </div>
     <div class="step">
       <div style="font-size: 1.5em;">❌</div>
-      <div><strong>Erro</strong> — nota errada ou muito atrasado (0 pontos)</div>
+      <div><strong>Erro</strong> — nota errada, atrasou muito, ou tocou tecla errada (0 pontos)</div>
     </div>
 
-    <p>Acertou varias seguidas? Seu <strong>COMBO</strong> cresce e voce ganha pontos extras! <span class="emoji">🔥</span></p>
+    <div class="highlight-red">
+      <p><strong>⚠️ Importante:</strong> Se você apertar a tecla errada, isso também conta como erro! O app detecta cada tecla que você aperta. Então <em>não fique apertando várias teclas</em> tentando adivinhar — espere a nota chegar e toque a tecla certa.</p>
+    </div>
 
-    <p>No final, voce ganha de <strong>0 a 3 estrelas</strong> baseado na sua precisao. E um <strong>Coach IA</strong> te da dicas personalizadas do que melhorar!</p>
+    <p>Acertou várias seguidas? Seu <strong>COMBO</strong> cresce e você ganha pontos extras! Mas se errar ou apertar tecla errada, o combo zera. <span class="emoji">🔥</span></p>
+
+    <p>No final da lição, você ganha de <strong>0 a 3 estrelas</strong> baseado na sua precisão:</p>
+    <div class="step">
+      <div style="font-size: 1.3em;">⭐⭐⭐</div>
+      <div>Precisão acima de 90% — mandou muito!</div>
+    </div>
+    <div class="step">
+      <div style="font-size: 1.3em;">⭐⭐☆</div>
+      <div>Precisão acima de 70% — bom trabalho!</div>
+    </div>
+    <div class="step">
+      <div style="font-size: 1.3em;">⭐☆☆</div>
+      <div>Precisão acima de 40% — está no caminho certo!</div>
+    </div>
+
+    <!-- ====== COACH IA ====== -->
+    <h2><span class="emoji">🤖</span> Coach IA</h2>
+    <p>Depois de cada lição, um <strong>professor virtual</strong> analisa como você foi e dá dicas personalizadas! Ele fala o que você fez bem, o que pode melhorar, e sugere uma missão para a próxima sessão.</p>
+    <p>Se a internet estiver ruim, o coach mostra uma mensagem baseada no seu resultado.</p>
 
     <!-- ====== CONQUISTAS ====== -->
     <h2><span class="emoji">🏆</span> Conquistas</h2>
-    <p>Desbloqueie medalhas conforme voce joga:</p>
+    <p>Desbloqueie medalhas conforme você joga:</p>
 
     <div class="badge-grid">
-      <div class="badge">🎵 Primeira Licao!</div>
+      <div class="badge">🎵 Primeira Lição!</div>
       <div class="badge">⭐ Score Perfeito!</div>
       <div class="badge">🔥 Combo de 50!</div>
       <div class="badge">📅 3 Dias Seguidos!</div>
@@ -309,31 +386,35 @@
       <div class="badge">👑 Todas as Estrelas!</div>
     </div>
 
-    <!-- ====== NIVEIS ====== -->
-    <h2><span class="emoji">📈</span> Niveis</h2>
-    <p>Quanto mais voce pratica, mais XP ganha e mais sobe de nivel:</p>
+    <!-- ====== NÍVEIS ====== -->
+    <h2><span class="emoji">📈</span> Níveis</h2>
+    <p>Quanto mais você pratica, mais XP ganha e mais sobe de nível:</p>
 
-    <div class="step"><div style="font-size:1.3em">🐣</div><div><strong>Nivel 1 — Novato</strong></div></div>
-    <div class="step"><div style="font-size:1.3em">🎵</div><div><strong>Nivel 2 — Aprendiz</strong></div></div>
-    <div class="step"><div style="font-size:1.3em">🔥</div><div><strong>Nivel 3 — Fera do Teclado</strong></div></div>
-    <div class="step"><div style="font-size:1.3em">🎹</div><div><strong>Nivel 4 — Mestre das Teclas</strong></div></div>
-    <div class="step"><div style="font-size:1.3em">👑</div><div><strong>Nivel 5 — Lenda Musical</strong></div></div>
+    <div class="step"><div style="font-size:1.3em">🐣</div><div><strong>Nível 1 — Novato</strong> (0 XP)</div></div>
+    <div class="step"><div style="font-size:1.3em">🎵</div><div><strong>Nível 2 — Aprendiz</strong> (500 XP)</div></div>
+    <div class="step"><div style="font-size:1.3em">🔥</div><div><strong>Nível 3 — Fera do Teclado</strong> (1500 XP)</div></div>
+    <div class="step"><div style="font-size:1.3em">🎹</div><div><strong>Nível 4 — Mestre das Teclas</strong> (3500 XP)</div></div>
+    <div class="step"><div style="font-size:1.3em">👑</div><div><strong>Nível 5 — Lenda Musical</strong> (7000 XP)</div></div>
 
     <div class="divider"></div>
 
-    <h2><span class="emoji">💡</span> Dicas</h2>
+    <!-- ====== DICAS ====== -->
+    <h2><span class="emoji">💡</span> Dicas para ir bem</h2>
     <ul style="padding-left: 20px; margin-bottom: 16px;">
-      <li>Comece no <strong>modo Praticar</strong> — ele pausa e espera voce acertar</li>
-      <li>Quando se sentir confiante, mude pro <strong>modo Tocar</strong> (desafio!)</li>
+      <li>Comece <strong>sempre</strong> no modo <strong>🎯 Praticar</strong> — ele pausa e espera você acertar</li>
+      <li>Quando se sentir confiante, mude pro modo <strong>🎹 Tocar</strong> (desafio!)</li>
+      <li><strong>Não fique apertando teclas aleatórias!</strong> Espere a nota chegar e toque a certa</li>
       <li>Tente praticar <strong>todo dia</strong> pra manter seu streak 🔥</li>
-      <li>Nao precisa acertar tudo! 1 estrela ja desbloqueia a proxima licao</li>
-      <li>O Coach IA sempre da dicas do que melhorar — leia o feedback!</li>
+      <li>Não precisa acertar tudo! <strong>1 estrela</strong> já desbloqueia a próxima lição</li>
+      <li>Leia o feedback do <strong>Coach IA</strong> — ele sempre dá dicas do que melhorar</li>
+      <li>Se conectar o <strong>teclado Yamaha via USB</strong>, a experiência fica muito melhor!</li>
+      <li>Use o botão <strong>"← Voltar"</strong> no canto superior esquerdo pra sair de qualquer tela</li>
     </ul>
 
     <div class="divider"></div>
 
     <p style="text-align: center; font-size: 1.1em; color: white; margin: 24px 0 8px;">
-      Pronta pra comecar? <span class="emoji">🎹✨</span>
+      Pronta pra começar? <span class="emoji">🎹✨</span>
     </p>
 
     <a href="/" class="cta-button">
@@ -342,6 +423,7 @@
 
     <div class="footer">
       <p>KeyBoard Hero v1.0 — Feito com 💜</p>
+      <p style="margin-top: 8px; font-size: 0.8em;">Dúvidas? Fale com quem te enviou este link!</p>
     </div>
 
   </div>
