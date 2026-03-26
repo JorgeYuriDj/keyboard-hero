@@ -504,7 +504,7 @@ export class FallingNotesRenderer {
 
     ctx.font = '12px system-ui, sans-serif';
     ctx.fillStyle = 'rgba(255,255,255,0.5)';
-    ctx.fillText('SCORE', w - 20, 42);
+    ctx.fillText('PONTOS', w - 20, 42);
 
     // Combo — shown prominently when > 5
     if (gameState.combo > 5) {
@@ -532,7 +532,7 @@ export class FallingNotesRenderer {
     ctx.textBaseline = 'top';
     ctx.font = '11px system-ui, sans-serif';
     ctx.fillStyle = 'rgba(255,255,255,0.35)';
-    const modeLabel = gameState.mode === 'practice' ? 'PRACTICE' : 'PERFORMANCE';
+    const modeLabel = gameState.mode === 'practice' ? 'PRATICAR' : 'DESAFIO';
     ctx.fillText(modeLabel, 16, 16);
 
     // Pause overlay
@@ -546,7 +546,7 @@ export class FallingNotesRenderer {
       ctx.font = 'bold 36px system-ui, sans-serif';
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
-      ctx.fillText('PAUSED', w / 2, canvasH / 2);
+      ctx.fillText('PAUSADO', w / 2, canvasH / 2);
     }
 
     ctx.restore();

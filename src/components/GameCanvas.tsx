@@ -37,7 +37,7 @@ const HIT_WINDOW_S = 0.15;
 const END_GRACE_S = 2;
 
 /** Countdown ticks before the game starts. */
-const COUNTDOWN_TICKS = ['3', '2', '1', 'Go!'];
+const COUNTDOWN_TICKS = ['3', '2', '1', 'Vai!'];
 const COUNTDOWN_TICK_MS = 800;
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
@@ -486,18 +486,42 @@ const GameCanvas: FC<GameCanvasProps> = ({
                         bg-black/60 backdrop-blur-sm">
           <h2 className="text-white text-2xl font-bold mb-2">{lesson.title}</h2>
           <p className="text-white/60 text-sm mb-1">
-            {lesson.notes.length} notes &middot; {mode === 'practice' ? 'Practice' : 'Performance'}
+            {lesson.notes.length} notas &middot; {mode === 'practice' ? 'Praticar' : 'Desafio'}
           </p>
-          <p className="text-white/40 text-xs mb-8">
-            {midiDeviceId ? 'MIDI connected' : 'Keyboard fallback (Z-M, Q-I)'}
-          </p>
+
+          {midiDeviceId ? (
+            <p className="text-green-400 text-sm mb-6 flex items-center gap-2">
+              <span className="inline-block w-2 h-2 rounded-full bg-green-400" />
+              MIDI conectado
+            </p>
+          ) : (
+            <div className="text-center mb-6 max-w-md">
+              <p className="text-amber-400 text-sm mb-3 flex items-center justify-center gap-2">
+                <span className="inline-block w-2 h-2 rounded-full bg-amber-400" />
+                Sem MIDI &mdash; usando teclado do computador
+              </p>
+              <div className="bg-white/10 rounded-xl px-5 py-3 backdrop-blur-sm">
+                <p className="text-white/80 text-xs leading-relaxed">
+                  Use as teclas <span className="font-mono font-bold text-indigo-300">Q W E R T Y U I</span> (notas altas)
+                </p>
+                <p className="text-white/80 text-xs leading-relaxed">
+                  e <span className="font-mono font-bold text-indigo-300">Z X C V B N M</span> (notas baixas) no teclado
+                </p>
+                <p className="text-white/50 text-[10px] mt-1">
+                  Teclas pretas: <span className="font-mono">2 3 5 6 7</span> (altas) &middot; <span className="font-mono">S D G H J</span> (baixas)
+                </p>
+              </div>
+            </div>
+          )}
+
           <button
             onClick={startGame}
-            className="px-12 py-4 rounded-2xl bg-indigo-600 hover:bg-indigo-500
-                       text-white text-xl font-semibold transition-colors
-                       shadow-lg shadow-indigo-600/30 active:scale-95"
+            className="px-16 py-5 rounded-2xl bg-indigo-600 hover:bg-indigo-500
+                       text-white text-2xl font-bold transition-colors
+                       shadow-lg shadow-indigo-600/40 active:scale-95
+                       animate-pulse hover:animate-none"
           >
-            Start
+            Iniciar
           </button>
         </div>
       )}
@@ -519,21 +543,21 @@ const GameCanvas: FC<GameCanvasProps> = ({
       {phase === 'paused' && (
         <div className="absolute inset-0 z-30 flex flex-col items-center justify-center
                         bg-black/70 backdrop-blur-sm gap-4">
-          <h2 className="text-white text-4xl font-bold mb-6">Paused</h2>
+          <h2 className="text-white text-4xl font-bold mb-6">Pausado</h2>
           <button
             onClick={resumeGame}
             className="px-10 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500
                        text-white text-lg font-semibold transition-colors
                        shadow-lg shadow-indigo-600/30"
           >
-            Resume
+            Continuar
           </button>
           <button
             onClick={quitGame}
             className="px-10 py-3 rounded-xl bg-white/10 hover:bg-white/20
                        text-white text-lg font-medium transition-colors"
           >
-            Quit
+            Sair
           </button>
         </div>
       )}

@@ -44,74 +44,71 @@ function chordAt(names: string[], time: number, duration: number, velocity = 80)
   }));
 }
 
-// Lesson 1: Do Re Mi
+// Lesson 1: Do Re Mi (ascending + descending, repeated 2x = ~12 notes)
 function lesson1(): MidiNote[] {
-  return generateNoteSequence(['C4', 'D4', 'E4'], 60);
+  return generateNoteSequence(
+    [
+      'C4', 'D4', 'E4', 'E4', 'D4', 'C4',
+      'C4', 'D4', 'E4', 'E4', 'D4', 'C4',
+    ],
+    60
+  );
 }
 
-// Lesson 2: Escala de Do Maior
+// Lesson 2: Escala de Do Maior (ascending + descending = 15 notes)
 function lesson2(): MidiNote[] {
   return generateNoteSequence(
-    ['C4', 'D4', 'E4', 'F4', 'G4', 'A4', 'B4', 'C5'],
+    ['C4', 'D4', 'E4', 'F4', 'G4', 'A4', 'B4', 'C5',
+     'B4', 'A4', 'G4', 'F4', 'E4', 'D4', 'C4'],
     70
   );
 }
 
-// Lesson 3: Ritmo Basico (mixed durations: half, quarter, half, quarter)
+// Lesson 3: Ritmo Basico (mixed durations, pattern repeated for 12 notes)
 function lesson3(): MidiNote[] {
   return generateNoteSequence(
-    ['C4', 'E4', 'G4', 'C5', 'C4', 'E4', 'G4', 'C5'],
+    ['C4', 'E4', 'G4', 'C5', 'G4', 'E4',
+     'C4', 'E4', 'G4', 'C5', 'G4', 'C4'],
     80,
-    [2, 1, 1, 2, 2, 1, 1, 2]
+    [2, 1, 1, 2, 1, 1,
+     2, 1, 1, 2, 1, 2]
   );
 }
 
-// Lesson 4: Mao Esquerda
+// Lesson 4: Mao Esquerda (pattern repeated to reach 12 notes)
 function lesson4(): MidiNote[] {
-  return generateNoteSequence(['C3', 'E3', 'G3', 'C3'], 60);
+  return generateNoteSequence(
+    ['C3', 'E3', 'G3', 'C3', 'G3', 'E3',
+     'C3', 'E3', 'G3', 'C3', 'G3', 'E3'],
+    60
+  );
 }
 
-// Lesson 5: Parabens pra Voce (Happy Birthday in C major)
+// Lesson 5: Parabens pra Voce (Happy Birthday in C major, white keys only)
 function lesson5(): MidiNote[] {
-  const q = 60 / 100;
-  const notes: Array<[string, number, number]> = [
-    ['C4', 0, 0.75],
-    ['C4', q * 0.75, 0.25],
-    ['D4', q * 1, 1],
-    ['C4', q * 2, 1],
-    ['F4', q * 3, 1],
-    ['E4', q * 4, 2],
-
-    ['C4', q * 6, 0.75],
-    ['C4', q * 6.75, 0.25],
-    ['D4', q * 7, 1],
-    ['C4', q * 8, 1],
-    ['G4', q * 9, 1],
-    ['F4', q * 10, 2],
-
-    ['C4', q * 12, 0.75],
-    ['C4', q * 12.75, 0.25],
-    ['C5', q * 13, 1],
-    ['A4', q * 14, 1],
-    ['F4', q * 15, 1],
-    ['E4', q * 16, 1],
-    ['D4', q * 17, 2],
-
-    ['B4', q * 19, 0.75],
-    ['B4', q * 19.75, 0.25],
-    ['A4', q * 20, 1],
-    ['F4', q * 21, 1],
-    ['G4', q * 22, 1],
-    ['F4', q * 23, 2],
-  ];
-
-  return notes.map(([name, time, duration]) => ({
-    midi: noteToMidi(name),
-    time,
-    duration: duration * q,
-    velocity: 80,
-    name,
-  }));
+  return generateNoteSequence(
+    [
+      // Linha 1: "Parabens pra voce"
+      'C4', 'C4', 'D4', 'C4', 'F4', 'E4',
+      // Linha 2: "Parabens pra voce"
+      'C4', 'C4', 'D4', 'C4', 'G4', 'F4',
+      // Linha 3: "Parabens querido(a)..."
+      'C4', 'C4', 'C5', 'A4', 'F4', 'E4', 'D4',
+      // Linha 4: "Parabens pra voce" (final, white keys only — A4 instead of Bb4)
+      'A4', 'A4', 'A4', 'F4', 'G4', 'F4',
+    ],
+    100,
+    [
+      // Linha 1
+      0.75, 0.25, 1, 1, 1, 2,
+      // Linha 2
+      0.75, 0.25, 1, 1, 1, 2,
+      // Linha 3
+      0.75, 0.25, 1, 1, 1, 1, 2,
+      // Linha 4
+      0.75, 0.25, 1, 1, 1, 2,
+    ]
+  );
 }
 
 // Lesson 6: Brilha Brilha Estrelinha (Twinkle Twinkle Little Star)

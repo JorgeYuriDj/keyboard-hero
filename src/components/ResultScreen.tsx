@@ -86,7 +86,7 @@ export default function ResultScreen({
       {/* Lesson Title */}
       <p className="text-gray-400 text-sm mb-2">{lesson.title}</p>
       <p className="text-gray-500 text-xs mb-6">
-        {result.mode === 'practice' ? 'Modo Pratica' : 'Modo Performance'}
+        {result.mode === 'practice' ? 'Modo Pratica' : 'Modo Desafio'}
       </p>
 
       {/* Stars Animation */}
@@ -113,15 +113,15 @@ export default function ResultScreen({
 
       {/* Stats Grid */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 w-full max-w-lg mb-6">
-        <StatCell label="Perfect" value={result.perfect} color="text-green-400" />
-        <StatCell label="Good" value={result.good} color="text-yellow-400" />
+        <StatCell label="Perfeito" value={result.perfect} color="text-green-400" />
+        <StatCell label="Bom" value={result.good} color="text-yellow-400" />
         <StatCell label="Ok" value={result.ok} color="text-orange-400" />
-        <StatCell label="Miss" value={result.miss} color="text-red-400" />
+        <StatCell label="Erro" value={result.miss} color="text-red-400" />
       </div>
 
       {/* Max Combo */}
       <div className="bg-[#1a1730] border border-purple-800/30 rounded-xl px-6 py-3 mb-6 w-full max-w-lg text-center">
-        <span className="text-sm text-gray-400">Max Combo: </span>
+        <span className="text-sm text-gray-400">Combo Maximo: </span>
         <span className="text-xl font-bold text-cyan-400">
           {result.maxCombo}x
         </span>

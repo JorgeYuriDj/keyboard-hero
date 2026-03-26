@@ -97,6 +97,10 @@ export function getKeyboardFallback(
   const activeKeys = new Set<string>();
 
   const handleKeyDown = (event: KeyboardEvent) => {
+    // Don't intercept when the user is typing in a text field
+    const target = event.target as HTMLElement;
+    if (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.isContentEditable) return;
+
     const key = event.key.toLowerCase();
     if (activeKeys.has(key)) return;
 
@@ -109,6 +113,10 @@ export function getKeyboardFallback(
   };
 
   const handleKeyUp = (event: KeyboardEvent) => {
+    // Don't intercept when the user is typing in a text field
+    const target = event.target as HTMLElement;
+    if (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.isContentEditable) return;
+
     const key = event.key.toLowerCase();
     activeKeys.delete(key);
 

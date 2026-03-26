@@ -197,13 +197,13 @@ export default function LessonMap({
                     P:{bestScore.perfect}
                   </span>
                   <span className="text-yellow-400">
-                    G:{bestScore.good}
+                    B:{bestScore.good}
                   </span>
                   <span className="text-orange-400">
-                    O:{bestScore.ok}
+                    OK:{bestScore.ok}
                   </span>
                   <span className="text-red-400">
-                    M:{bestScore.miss}
+                    E:{bestScore.miss}
                   </span>
                 </div>
               </div>
